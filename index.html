@@ -81,6 +81,8 @@
             font-size: 1.2rem; 
             font-weight: bold;
             box-shadow: 0 4px 15px rgba(230, 126, 34, 0.3);
+            border: none;
+            cursor: pointer;
         }
         .btn-primary:hover { 
             background: #d35400; 
@@ -136,12 +138,12 @@
         .services-grid { 
             display: grid; 
             grid-template-columns: repeat(2, 1fr); 
-            gap: 30px;
+            gap: 25px;
         }
         .service-card { 
             background: white; 
             border-radius: 10px; 
-            padding: 40px 30px; 
+            padding: 35px 30px; 
             text-align: center; 
             box-shadow: 0 5px 20px rgba(0,0,0,0.08); 
             transition: all 0.3s ease;
@@ -150,20 +152,22 @@
             flex-direction: column;
             align-items: center;
             height: 100%;
-            min-height: 280px;
+            min-height: 200px;
+            border: 1px solid #f0f0f0;
         }
         .service-card:hover { 
             transform: translateY(-5px); 
             box-shadow: 0 15px 30px rgba(0,0,0,0.15); 
+            border-color: var(--accent);
         }
         .service-card i { 
-            font-size: 3.5rem; 
+            font-size: 3rem; 
             color: var(--secondary); 
-            margin-bottom: 25px; 
+            margin-bottom: 20px; 
             display: block; 
         }
         .service-card h3 { 
-            font-size: 1.5rem; 
+            font-size: 1.4rem; 
             margin-bottom: 15px; 
             color: var(--primary); 
             font-weight: 600;
@@ -186,8 +190,8 @@
             gap: 12px;
         }
         
-        /* Service Detail Modal */
-        .service-modal {
+        /* Quote Modal */
+        .quote-modal {
             display: none;
             position: fixed;
             top: 0;
@@ -204,7 +208,7 @@
             margin: 50px auto;
             padding: 50px;
             border-radius: 15px;
-            max-width: 1000px;
+            max-width: 600px;
             position: relative;
             animation: modalSlide 0.3s ease;
         }
@@ -214,8 +218,8 @@
         }
         .close-modal {
             position: absolute;
-            top: 25px;
-            right: 25px;
+            top: 20px;
+            right: 20px;
             font-size: 2rem;
             color: #999;
             cursor: pointer;
@@ -229,6 +233,56 @@
         }
         .close-modal:hover {
             color: var(--accent);
+        }
+        
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 25px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* Service Detail Modal */
+        .service-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        .service-modal-content {
+            background: white;
+            margin: 50px auto;
+            padding: 50px;
+            border-radius: 15px;
+            max-width: 1000px;
+            position: relative;
+            animation: modalSlide 0.3s ease;
         }
         .service-detail-grid {
             display: grid;
@@ -256,7 +310,7 @@
             padding: 0;
         }
         .service-info li {
-            padding: 8px 0;
+            padding: 10px 0;
             border-bottom: 1px solid #eee;
             display: flex;
             align-items: center;
@@ -266,6 +320,7 @@
             content: "✓";
             color: var(--green);
             font-weight: bold;
+            font-size: 1.1rem;
         }
         .testimonial-card {
             background: #f8f9fa;
@@ -348,14 +403,14 @@
                 gap: 20px;
             }
             .service-card { 
-                padding: 30px 20px; 
-                min-height: 250px;
+                padding: 25px 20px; 
+                min-height: 180px;
             }
-            .service-card i { font-size: 3rem; }
-            .service-card h3 { font-size: 1.4rem; }
+            .service-card i { font-size: 2.5rem; }
+            .service-card h3 { font-size: 1.3rem; }
             
-            /* Service Detail Modal */
-            .modal-content {
+            /* Modals */
+            .modal-content, .service-modal-content {
                 margin: 20px;
                 padding: 30px 25px;
             }
@@ -384,7 +439,7 @@
             
             .section-title h2 { font-size: 1.8rem; }
             
-            .service-card { padding: 25px 20px; }
+            .service-card { padding: 20px 15px; }
             
             .banner-24-7 { padding: 15px 0; font-size: 1rem; }
             
@@ -408,7 +463,7 @@
 </head>
 <body>
     <!-- Floating Quote Button - SEMPRE VISÍVEL -->
-    <a href="#contact" class="floating-quote">
+    <a href="javascript:void(0)" class="floating-quote" onclick="openQuoteModal()">
         <i class="fas fa-comment-dollar"></i>
         FREE QUOTE
     </a>
@@ -432,7 +487,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="#contact" class="cta-button">FREE QUOTE</a></li>
+                    <li><a href="javascript:void(0)" class="cta-button" onclick="openQuoteModal()">FREE QUOTE</a></li>
                 </ul>
             </nav>
             
@@ -448,7 +503,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="#contact" class="cta-button" style="display: inline-block; text-align: center; margin-top: 10px;">FREE QUOTE</a></li>
+                <li><a href="javascript:void(0)" class="cta-button" onclick="openQuoteModal(); mobileNav.classList.remove('active');">FREE QUOTE</a></li>
             </ul>
         </nav>
     </header>
@@ -458,9 +513,9 @@
             <h2>Sydney's Most Trusted Cleaning Service</h2>
             <p>Professional 24/7 cleaning services for homes and businesses across Sydney. Emergency services available.</p>
             <div class="hero-buttons">
-                <a href="#contact" class="btn-primary">
+                <button class="btn-primary" onclick="openQuoteModal()">
                     <i class="fas fa-comment-dollar"></i> GET FREE QUOTE
-                </a>
+                </button>
                 <a href="tel:0451989385" class="btn-secondary">
                     <i class="fas fa-phone"></i> CALL NOW: 0451 989 385
                 </a>
@@ -507,7 +562,7 @@
                 <div class="service-card" onclick="openService('residential')">
                     <i class="fas fa-home"></i>
                     <h3>Residential Cleaning</h3>
-                    <p>Complete home cleaning, vacuuming, mopping, dusting, and bathroom sanitization.</p>
+                    <p>Complete home cleaning, vacuuming, mopping, and sanitization.</p>
                     <a class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
 
@@ -515,15 +570,7 @@
                 <div class="service-card" onclick="openService('commercial')">
                     <i class="fas fa-building"></i>
                     <h3>Commercial Cleaning</h3>
-                    <p>Office cleaning, floor maintenance, window cleaning, and sanitization services.</p>
-                    <a class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-
-                <!-- Driveway Cleaning -->
-                <div class="service-card" onclick="openService('driveway')">
-                    <i class="fas fa-road"></i>
-                    <h3>Driveway Cleaning</h3>
-                    <p>High-pressure cleaning for driveways, removing oil stains and restoring surfaces.</p>
+                    <p>Office cleaning, floor maintenance, and sanitization services.</p>
                     <a class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
 
@@ -535,44 +582,150 @@
                     <a class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
 
-                <!-- Gutter Cleaning -->
-                <div class="service-card" onclick="openService('gutter-cleaning')">
-                    <i class="fas fa-tint"></i>
-                    <h3>Gutter Cleaning</h3>
-                    <p>Complete gutter cleaning, downpipe clearing, and drainage solutions.</p>
-                    <a class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-
-                <!-- Gardening Services -->
-                <div class="service-card" onclick="openService('gardening')">
-                    <i class="fas fa-leaf"></i>
-                    <h3>Gardening Services</h3>
-                    <p>Lawn mowing, hedge trimming, garden maintenance, and landscaping.</p>
-                    <a class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-
                 <!-- Pressure Washing -->
                 <div class="service-card" onclick="openService('pressure-washing')">
                     <i class="fas fa-spray-can"></i>
                     <h3>Pressure Washing</h3>
-                    <p>High-pressure cleaning for patios, decks, fences, and outdoor areas.</p>
+                    <p>High-pressure cleaning for patios, decks, and outdoor areas.</p>
                     <a class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
 
-                <!-- Emergency Cleaning -->
-                <div class="service-card" onclick="openService('emergency')">
-                    <i class="fas fa-exclamation-triangle"></i>
-                    <h3>Emergency Cleaning</h3>
-                    <p>24/7 emergency response for floods, spills, and urgent cleaning needs.</p>
+                <!-- Window Cleaning -->
+                <div class="service-card" onclick="openService('window-cleaning')">
+                    <i class="fas fa-window-restore"></i>
+                    <h3>Window Cleaning</h3>
+                    <p>Professional window cleaning for crystal clear results.</p>
+                    <a class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Driveway Cleaning -->
+                <div class="service-card" onclick="openService('driveway')">
+                    <i class="fas fa-road"></i>
+                    <h3>Driveway Cleaning</h3>
+                    <p>High-pressure cleaning for driveways and pavement restoration.</p>
+                    <a class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Solar Panel Cleaning -->
+                <div class="service-card" onclick="openService('solar-panel')">
+                    <i class="fas fa-solar-panel"></i>
+                    <h3>Solar Panel Cleaning</h3>
+                    <p>Professional solar panel cleaning to maximize energy efficiency.</p>
+                    <a class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Building Cleaning -->
+                <div class="service-card" onclick="openService('building-cleaning')">
+                    <i class="fas fa-city"></i>
+                    <h3>Building Cleaning</h3>
+                    <p>Complete building exterior cleaning and maintenance.</p>
+                    <a class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Roof Cleaning -->
+                <div class="service-card" onclick="openService('roof-cleaning')">
+                    <i class="fas fa-home"></i>
+                    <h3>Roof Cleaning</h3>
+                    <p>Professional roof cleaning and moss removal services.</p>
+                    <a class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Gutter Cleaning -->
+                <div class="service-card" onclick="openService('gutter-cleaning')">
+                    <i class="fas fa-tint"></i>
+                    <h3>Gutter Cleaning</h3>
+                    <p>Complete gutter cleaning and drainage solutions.</p>
+                    <a class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Deck Patio Cleaning -->
+                <div class="service-card" onclick="openService('deck-patio')">
+                    <i class="fas fa-umbrella-beach"></i>
+                    <h3>Deck & Patio Cleaning</h3>
+                    <p>Restore your outdoor living spaces to their original beauty.</p>
+                    <a class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Concrete Render Cleaning -->
+                <div class="service-card" onclick="openService('concrete-render')">
+                    <i class="fas fa-border-style"></i>
+                    <h3>Concrete & Render Cleaning</h3>
+                    <p>Professional cleaning for concrete surfaces and rendered walls.</p>
                     <a class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Quote Modal -->
+    <div id="quote-modal" class="quote-modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeQuoteModal()">&times;</button>
+            <h2 style="text-align: center; color: var(--primary); margin-bottom: 30px;">Get a Free Quote</h2>
+            
+            <form id="quote-form">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" class="form-control" placeholder="Your name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" class="form-control" placeholder="Your last name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" class="form-control" placeholder="Your phone number" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-control" placeholder="Your email address" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="service">Service</label>
+                    <select id="service" class="form-control" required>
+                        <option value="">Choose an option...</option>
+                        <option value="residential">Residential Cleaning</option>
+                        <option value="commercial">Commercial Cleaning</option>
+                        <option value="house-washing">House Washing</option>
+                        <option value="pressure-washing">Pressure Washing</option>
+                        <option value="window-cleaning">Window Cleaning</option>
+                        <option value="driveway">Driveway Cleaning</option>
+                        <option value="solar-panel">Solar Panel Cleaning</option>
+                        <option value="building-cleaning">Building Cleaning</option>
+                        <option value="roof-cleaning">Roof Cleaning</option>
+                        <option value="gutter-cleaning">Gutter Cleaning</option>
+                        <option value="deck-patio">Deck & Patio Cleaning</option>
+                        <option value="concrete-render">Concrete & Render Cleaning</option>
+                        <option value="tennis-court">Tennis Court Cleaning</option>
+                        <option value="strata">Strata Cleaning</option>
+                        <option value="new-build">New Build Property Cleaning</option>
+                        <option value="pre-sale">Pre-sale Property Cleaning</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" class="form-control" placeholder="Please, provide details about your request..." required></textarea>
+                </div>
+                
+                <button type="submit" class="btn-primary" style="width: 100%; padding: 18px; font-size: 1.2rem;">
+                    <i class="fas fa-paper-plane"></i> SEND MESSAGE
+                </button>
+            </form>
+            
+            <div style="text-align: center; margin-top: 20px; color: #666; font-size: 0.9rem;">
+                <p>Privacy - Terms</p>
+            </div>
+        </div>
+    </div>
+
     <!-- Service Detail Modals -->
     <div id="residential-modal" class="service-modal">
-        <div class="modal-content">
+        <div class="service-modal-content">
             <button class="close-modal" onclick="closeService('residential')">&times;</button>
             <h2>Residential Cleaning</h2>
             <p>Complete home cleaning services to keep your living spaces spotless and hygienic.</p>
@@ -605,55 +758,15 @@
             </div>
             
             <div style="text-align: center; margin-top: 30px;">
-                <a href="#contact" class="btn-primary" onclick="closeService('residential')">
+                <button class="btn-primary" onclick="closeService('residential'); openQuoteModal();">
                     <i class="fas fa-comment-dollar"></i> GET FREE RESIDENTIAL CLEANING QUOTE
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div id="driveway-modal" class="service-modal">
-        <div class="modal-content">
-            <button class="close-modal" onclick="closeService('driveway')">&times;</button>
-            <h2>Driveway Cleaning</h2>
-            <p>Professional driveway cleaning services to restore your pavement's original beauty and safety.</p>
-            
-            <div class="service-detail-grid">
-                <div class="service-info">
-                    <h3><i class="fas fa-check-circle"></i> What's Included:</h3>
-                    <ul>
-                        <li>High-pressure water cleaning</li>
-                        <li>Oil and stain removal</li>
-                        <li>Moss and algae treatment</li>
-                        <li>Eco-friendly cleaning solutions</li>
-                        <li>Surface sealing (optional)</li>
-                        <li>Stain protection</li>
-                    </ul>
-                    
-                    <h3><i class="fas fa-shield-alt"></i> Benefits:</h3>
-                    <p>Clean driveways improve curb appeal, prevent surface damage, and reduce slip hazards. Regular cleaning extends pavement life.</p>
-                    
-                    <div class="testimonial-card">
-                        <p>"Our driveway was covered in oil stains and looked terrible. NovaClean made it look brand new! Professional service from start to finish."</p>
-                        <div class="testimonial-author">- Sarah M., Castle Hill</div>
-                    </div>
-                </div>
-                <div class="service-images">
-                    <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Driveway Cleaning">
-                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Pressure Washing">
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 30px;">
-                <a href="#contact" class="btn-primary" onclick="closeService('driveway')">
-                    <i class="fas fa-comment-dollar"></i> GET FREE DRIVEWAY QUOTE
-                </a>
+                </button>
             </div>
         </div>
     </div>
 
     <div id="house-washing-modal" class="service-modal">
-        <div class="modal-content">
+        <div class="service-modal-content">
             <button class="close-modal" onclick="closeService('house-washing')">&times;</button>
             <h2>House Washing</h2>
             <p>Complete external house cleaning to remove dirt, mold, and restore your home's curb appeal.</p>
@@ -685,9 +798,9 @@
             </div>
             
             <div style="text-align: center; margin-top: 30px;">
-                <a href="#contact" class="btn-primary" onclick="closeService('house-washing')">
+                <button class="btn-primary" onclick="closeService('house-washing'); openQuoteModal();">
                     <i class="fas fa-comment-dollar"></i> GET FREE HOUSE WASHING QUOTE
-                </a>
+                </button>
             </div>
         </div>
     </div>
@@ -708,9 +821,9 @@
                     <p><i class="fas fa-clock"></i> Available 24/7 - Monday to Sunday</p>
                 </div>
                 <div class="contact-buttons">
-                    <a href="#contact" class="btn-primary" style="margin: 10px;">
+                    <button class="btn-primary" onclick="openQuoteModal()" style="margin: 10px;">
                         <i class="fas fa-comment-dollar"></i> GET FREE QUOTE
-                    </a>
+                    </button>
                     <a href="tel:0451989385" class="btn-secondary" style="margin: 10px;">
                         <i class="fas fa-phone"></i> CALL NOW: 0451 989 385
                     </a>
@@ -749,6 +862,17 @@
             mobileNav.classList.toggle('active');
         });
 
+        // Quote Modal Functions
+        function openQuoteModal() {
+            document.getElementById('quote-modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeQuoteModal() {
+            document.getElementById('quote-modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
         // Service Modal Functions
         function openService(service) {
             document.getElementById(service + '-modal').style.display = 'block';
@@ -760,8 +884,11 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Close modal when clicking outside
+        // Close modals when clicking outside
         window.addEventListener('click', (e) => {
+            if (e.target.classList.contains('quote-modal')) {
+                closeQuoteModal();
+            }
             if (e.target.classList.contains('service-modal')) {
                 e.target.style.display = 'none';
                 document.body.style.overflow = 'auto';
@@ -773,6 +900,14 @@
             if (!e.target.closest('.header-container') && !e.target.closest('.mobile-nav')) {
                 mobileNav.classList.remove('active');
             }
+        });
+
+        // Form submission
+        document.getElementById('quote-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your quote request! We will contact you within 30 minutes.');
+            closeQuoteModal();
+            this.reset();
         });
 
         // Close mobile menu when clicking on links
