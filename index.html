@@ -14,7 +14,18 @@
         header { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
         .header-container { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
         .logo { display: flex; align-items: center; }
-        .logo h1 { font-size: 1.8rem; color: var(--primary); margin-left: 10px; }
+        .logo-text { 
+            font-size: 1.8rem; 
+            color: var(--primary); 
+            margin-left: 10px; 
+            font-weight: bold;
+            position: relative;
+        }
+        .logo-star {
+            color: var(--accent);
+            font-size: 0.8em;
+            margin-left: 2px;
+        }
         
         /* Desktop Navigation */
         .desktop-nav { display: flex; }
@@ -32,6 +43,21 @@
         .mobile-nav ul { list-style: none; }
         .mobile-nav ul li { margin-bottom: 15px; }
         .mobile-nav ul li a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 1.1rem; display: block; padding: 10px 0; border-bottom: 1px solid #eee; }
+        
+        /* Top Banner */
+        .top-banner {
+            background: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 12px 0;
+            font-size: 1rem;
+            margin-top: 70px;
+        }
+        .top-banner h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
         
         /* Floating Quote Button */
         .floating-quote {
@@ -64,8 +90,9 @@
             background-size: cover; 
             background-position: center; 
             color: white; 
-            padding: 150px 0 100px; 
+            padding: 120px 0 80px; 
             text-align: center; 
+            margin-top: 0;
         }
         .hero h2 { font-size: 2.8rem; margin-bottom: 20px; font-weight: 700; }
         .hero p { font-size: 1.3rem; max-width: 800px; margin: 0 auto 30px; opacity: 0.9; }
@@ -336,15 +363,6 @@
             font-style: italic;
         }
         
-        /* Banner */
-        .banner-24-7 { 
-            background: var(--secondary); 
-            color: white; 
-            text-align: center; 
-            padding: 20px 0; 
-            font-size: 1.1rem;
-        }
-        
         /* Contact Section */
         .contact-info { text-align: center; max-width: 700px; margin: 0 auto; }
         .contact-details { margin-bottom: 40px; }
@@ -362,7 +380,16 @@
             .header-container { padding: 12px 0; }
             .desktop-nav { display: none; }
             .mobile-menu-btn { display: block; }
-            .logo h1 { font-size: 1.5rem; }
+            .logo-text { font-size: 1.5rem; }
+            
+            /* Top Banner */
+            .top-banner {
+                margin-top: 60px;
+                padding: 10px 0;
+            }
+            .top-banner h3 {
+                font-size: 1rem;
+            }
             
             /* Features Banner */
             .features-grid {
@@ -379,7 +406,7 @@
             }
             
             /* Hero Section */
-            .hero { padding: 120px 0 60px; }
+            .hero { padding: 100px 0 60px; }
             .hero h2 { font-size: 2rem; margin-bottom: 15px; }
             .hero p { font-size: 1.1rem; padding: 0 10px; }
             .hero-buttons { flex-direction: column; align-items: center; gap: 15px; }
@@ -441,7 +468,7 @@
             
             .service-card { padding: 20px 15px; }
             
-            .banner-24-7 { padding: 15px 0; font-size: 1rem; }
+            .top-banner h3 { font-size: 0.9rem; }
             
             .floating-quote {
                 bottom: 15px;
@@ -468,7 +495,8 @@
         FREE QUOTE
     </a>
 
-    <div class="banner-24-7">
+    <!-- Top Banner -->
+    <div class="top-banner">
         <div class="container">
             <h3><i class="fas fa-clock"></i> 24/7 Emergency Cleaning Services Available | Sydney Wide</h3>
         </div>
@@ -477,8 +505,8 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                <i class="fas fa-spray-can" style="color: #2e86c1; font-size: 2rem;"></i>
-                <h1>NovaClean</h1>
+                <i class="fas fa-tint" style="color: var(--secondary); font-size: 2rem;"></i>
+                <div class="logo-text">NovaClean<span class="logo-star">★</span></div>
             </div>
             
             <!-- Desktop Navigation -->
@@ -621,38 +649,6 @@
                     <p>Complete building exterior cleaning and maintenance.</p>
                     <a class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-
-                <!-- Roof Cleaning -->
-                <div class="service-card" onclick="openService('roof-cleaning')">
-                    <i class="fas fa-home"></i>
-                    <h3>Roof Cleaning</h3>
-                    <p>Professional roof cleaning and moss removal services.</p>
-                    <a class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-
-                <!-- Gutter Cleaning -->
-                <div class="service-card" onclick="openService('gutter-cleaning')">
-                    <i class="fas fa-tint"></i>
-                    <h3>Gutter Cleaning</h3>
-                    <p>Complete gutter cleaning and drainage solutions.</p>
-                    <a class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-
-                <!-- Deck Patio Cleaning -->
-                <div class="service-card" onclick="openService('deck-patio')">
-                    <i class="fas fa-umbrella-beach"></i>
-                    <h3>Deck & Patio Cleaning</h3>
-                    <p>Restore your outdoor living spaces to their original beauty.</p>
-                    <a class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-
-                <!-- Concrete Render Cleaning -->
-                <div class="service-card" onclick="openService('concrete-render')">
-                    <i class="fas fa-border-style"></i>
-                    <h3>Concrete & Render Cleaning</h3>
-                    <p>Professional cleaning for concrete surfaces and rendered walls.</p>
-                    <a class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
             </div>
         </div>
     </section>
@@ -700,10 +696,6 @@
                         <option value="gutter-cleaning">Gutter Cleaning</option>
                         <option value="deck-patio">Deck & Patio Cleaning</option>
                         <option value="concrete-render">Concrete & Render Cleaning</option>
-                        <option value="tennis-court">Tennis Court Cleaning</option>
-                        <option value="strata">Strata Cleaning</option>
-                        <option value="new-build">New Build Property Cleaning</option>
-                        <option value="pre-sale">Pre-sale Property Cleaning</option>
                     </select>
                 </div>
                 
@@ -765,6 +757,42 @@
         </div>
     </div>
 
+    <div id="commercial-modal" class="service-modal">
+        <div class="service-modal-content">
+            <button class="close-modal" onclick="closeService('commercial')">&times;</button>
+            <h2>Commercial Cleaning</h2>
+            <p>Professional office and commercial space cleaning services.</p>
+            
+            <div class="service-detail-grid">
+                <div class="service-info">
+                    <h3><i class="fas fa-check-circle"></i> Services Include:</h3>
+                    <ul>
+                        <li>Office floor cleaning</li>
+                        <li>Desk and surface sanitization</li>
+                        <li>Restroom cleaning</li>
+                        <li>Kitchen area maintenance</li>
+                        <li>Window cleaning</li>
+                        <li>Waste management</li>
+                    </ul>
+                    
+                    <div class="testimonial-card">
+                        <p>"NovaClean keeps our office spotless! Reliable and professional service."</p>
+                        <div class="testimonial-author">- David K., Sydney CBD</div>
+                    </div>
+                </div>
+                <div class="service-images">
+                    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Commercial Cleaning">
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn-primary" onclick="closeService('commercial'); openQuoteModal();">
+                    <i class="fas fa-comment-dollar"></i> GET FREE COMMERCIAL CLEANING QUOTE
+                </button>
+            </div>
+        </div>
+    </div>
+
     <div id="house-washing-modal" class="service-modal">
         <div class="service-modal-content">
             <button class="close-modal" onclick="closeService('house-washing')">&times;</button>
@@ -783,23 +811,54 @@
                         <li>Gutter cleaning included</li>
                     </ul>
                     
-                    <h3><i class="fas fa-home"></i> Protection:</h3>
-                    <p>Regular house washing prevents damage to surfaces, improves property value by up to 15%, and enhances your home's appearance.</p>
-                    
                     <div class="testimonial-card">
-                        <p>"Our house hadn't been cleaned in years and was covered in black mold. NovaClean made it look like new! Professional, efficient, and great value."</p>
+                        <p>"Our house hadn't been cleaned in years and was covered in black mold. NovaClean made it look like new!"</p>
                         <div class="testimonial-author">- Michael T., Parramatta</div>
                     </div>
                 </div>
                 <div class="service-images">
                     <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="House Washing">
-                    <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Exterior Cleaning">
                 </div>
             </div>
             
             <div style="text-align: center; margin-top: 30px;">
                 <button class="btn-primary" onclick="closeService('house-washing'); openQuoteModal();">
                     <i class="fas fa-comment-dollar"></i> GET FREE HOUSE WASHING QUOTE
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="pressure-washing-modal" class="service-modal">
+        <div class="service-modal-content">
+            <button class="close-modal" onclick="closeService('pressure-washing')">&times;</button>
+            <h2>Pressure Washing</h2>
+            <p>High-pressure cleaning services for various outdoor surfaces.</p>
+            
+            <div class="service-detail-grid">
+                <div class="service-info">
+                    <h3><i class="fas fa-check-circle"></i> Services Include:</h3>
+                    <ul>
+                        <li>Patio and deck cleaning</li>
+                        <li>Fence washing</li>
+                        <li>Outdoor furniture cleaning</li>
+                        <li>Concrete surface cleaning</li>
+                        <li>Brick and stone cleaning</li>
+                    </ul>
+                    
+                    <div class="testimonial-card">
+                        <p>"Our patio looks brand new after NovaClean's pressure washing service!"</p>
+                        <div class="testimonial-author">- Sarah J., Bondi</div>
+                    </div>
+                </div>
+                <div class="service-images">
+                    <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Pressure Washing">
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn-primary" onclick="closeService('pressure-washing'); openQuoteModal();">
+                    <i class="fas fa-comment-dollar"></i> GET FREE PRESSURE WASHING QUOTE
                 </button>
             </div>
         </div>
@@ -834,7 +893,7 @@
 
     <footer>
         <div class="container">
-            <h3>NovaClean Australia</h3>
+            <h3>NovaClean<span style="color: var(--accent);">★</span></h3>
             <p>Professional 24/7 cleaning services for Sydney</p>
             <p>0451 989 385 | contact@novaclean.com.au</p>
             <p>Sydney Wide Service | Fully Insured | Eco-Friendly Products</p>
@@ -873,15 +932,21 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Service Modal Functions
+        // Service Modal Functions - CORRIGIDO
         function openService(service) {
-            document.getElementById(service + '-modal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
+            const modal = document.getElementById(service + '-modal');
+            if (modal) {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
         }
 
         function closeService(service) {
-            document.getElementById(service + '-modal').style.display = 'none';
-            document.body.style.overflow = 'auto';
+            const modal = document.getElementById(service + '-modal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
         }
 
         // Close modals when clicking outside
