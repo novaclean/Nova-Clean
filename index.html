@@ -10,38 +10,137 @@
         body { color: #333; line-height: 1.6; background: #f5f7fa; }
         .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
         
+        /* Header & Navigation */
         header { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
         .header-container { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
         .logo { display: flex; align-items: center; }
         .logo h1 { font-size: 1.8rem; color: var(--primary); margin-left: 10px; }
-        nav ul { display: flex; list-style: none; }
-        nav ul li { margin-left: 20px; }
-        nav ul li a { text-decoration: none; color: #2c3e50; font-weight: 500; }
-        .cta-button { background: var(--accent); color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; }
         
-        .hero { background: linear-gradient(rgba(26, 82, 118, 0.8), rgba(26, 82, 118, 0.9)), url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); background-size: cover; color: white; padding: 150px 0 100px; text-align: center; }
+        /* Desktop Navigation */
+        .desktop-nav { display: flex; }
+        .desktop-nav ul { display: flex; list-style: none; }
+        .desktop-nav ul li { margin-left: 20px; }
+        .desktop-nav ul li a { text-decoration: none; color: #2c3e50; font-weight: 500; transition: color 0.3s; }
+        .desktop-nav ul li a:hover { color: var(--accent); }
+        .cta-button { background: var(--accent); color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; transition: background 0.3s; }
+        .cta-button:hover { background: #d35400; }
+        
+        /* Mobile Navigation */
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 24px; color: var(--primary); cursor: pointer; padding: 5px; }
+        .mobile-nav { display: none; position: fixed; top: 70px; left: 0; width: 100%; background: white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); padding: 20px; z-index: 999; }
+        .mobile-nav.active { display: block; }
+        .mobile-nav ul { list-style: none; }
+        .mobile-nav ul li { margin-bottom: 15px; }
+        .mobile-nav ul li a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 1.1rem; display: block; padding: 10px 0; border-bottom: 1px solid #eee; }
+        
+        /* Hero Section */
+        .hero { background: linear-gradient(rgba(26, 82, 118, 0.8), rgba(26, 82, 118, 0.9)), url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); background-size: cover; background-position: center; color: white; padding: 150px 0 100px; text-align: center; }
         .hero h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 30px; }
         .hero-buttons { display: flex; justify-content: center; gap: 15px; margin-top: 30px; }
-        .btn-primary { background: var(--accent); color: white; padding: 12px 25px; border-radius: 5px; text-decoration: none; }
-        .btn-secondary { background: transparent; color: white; padding: 12px 25px; border: 2px solid white; border-radius: 5px; text-decoration: none; }
+        .btn-primary { background: var(--accent); color: white; padding: 12px 25px; border-radius: 5px; text-decoration: none; transition: background 0.3s; display: inline-block; }
+        .btn-primary:hover { background: #d35400; }
+        .btn-secondary { background: transparent; color: white; padding: 12px 25px; border: 2px solid white; border-radius: 5px; text-decoration: none; transition: all 0.3s; display: inline-block; }
+        .btn-secondary:hover { background: white; color: var(--primary); }
         
+        /* Sections */
         section { padding: 80px 0; }
         .section-title { text-align: center; margin-bottom: 50px; }
         .section-title h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 15px; }
+        .section-title p { font-size: 1.1rem; color: #666; max-width: 600px; margin: 0 auto; }
         
+        /* Services Grid */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .service-card { background: white; border-radius: 8px; padding: 30px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .service-card { background: white; border-radius: 8px; padding: 30px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
+        .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+        .service-card i { font-size: 3rem; color: var(--secondary); margin-bottom: 20px; display: block; }
+        .service-card h3 { font-size: 1.4rem; margin-bottom: 15px; color: var(--primary); }
+        .service-card p { color: #666; }
         
+        /* Banner */
         .banner-24-7 { background: var(--secondary); color: white; text-align: center; padding: 20px 0; }
+        .banner-24-7 h3 { margin-bottom: 5px; }
         
+        /* Contact Section */
+        .contact-info { text-align: center; max-width: 600px; margin: 0 auto; }
+        .contact-details { margin-bottom: 30px; }
+        .contact-details h3 { margin: 15px 0; color: var(--primary); }
+        .contact-details p { color: #666; }
+        
+        /* Footer */
         footer { background: #2c3e50; color: white; padding: 60px 0 30px; text-align: center; }
-        
+        footer h3 { margin-bottom: 15px; color: white; }
+        footer p { margin: 10px 0; opacity: 0.9; }
+
+        /* ===== MOBILE RESPONSIVE STYLES ===== */
         @media (max-width: 768px) {
-            .header-container { flex-direction: column; }
-            nav ul { flex-direction: column; text-align: center; margin-top: 15px; }
-            nav ul li { margin: 5px 0; }
-            .hero h2 { font-size: 2rem; }
-            .hero-buttons { flex-direction: column; align-items: center; }
+            /* Header & Navigation */
+            .header-container { padding: 12px 0; }
+            .desktop-nav { display: none; }
+            .mobile-menu-btn { display: block; }
+            .logo h1 { font-size: 1.5rem; }
+            
+            /* Hero Section */
+            .hero { padding: 120px 0 60px; }
+            .hero h2 { font-size: 1.8rem; margin-bottom: 15px; }
+            .hero p { font-size: 1rem; padding: 0 10px; }
+            .hero-buttons { flex-direction: column; align-items: center; gap: 10px; }
+            .btn-primary, .btn-secondary { 
+                padding: 15px 30px; 
+                width: 100%; 
+                max-width: 280px; 
+                text-align: center;
+                font-size: 1.1rem;
+            }
+            
+            /* Sections */
+            section { padding: 50px 0; }
+            .section-title { margin-bottom: 30px; }
+            .section-title h2 { font-size: 1.8rem; }
+            .section-title p { font-size: 1rem; padding: 0 10px; }
+            
+            /* Services Grid */
+            .services-grid { 
+                grid-template-columns: 1fr; 
+                gap: 20px;
+                padding: 0 10px;
+            }
+            .service-card { 
+                padding: 25px 20px; 
+                margin: 0 auto;
+                max-width: 100%;
+            }
+            .service-card i { font-size: 2.5rem; }
+            .service-card h3 { font-size: 1.3rem; }
+            
+            /* Contact Section */
+            .contact-details h3 { font-size: 1.2rem; }
+            
+            /* Footer */
+            footer { padding: 40px 0 20px; }
+        }
+
+        /* Extra Small Devices */
+        @media (max-width: 480px) {
+            .container { width: 95%; padding: 0 10px; }
+            
+            .hero h2 { font-size: 1.6rem; }
+            .hero p { font-size: 0.95rem; }
+            
+            .section-title h2 { font-size: 1.6rem; }
+            
+            .service-card { padding: 20px 15px; }
+            
+            .banner-24-7 { padding: 15px 0; }
+            .banner-24-7 h3 { font-size: 1.1rem; }
+        }
+
+        /* Large Mobile Devices */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .services-grid { 
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 25px;
+            }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -60,7 +159,9 @@
                 <i class="fas fa-spray-can" style="color: #2e86c1; font-size: 2rem;"></i>
                 <h1>NovaClean</h1>
             </div>
-            <nav>
+            
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#services">Services</a></li>
@@ -68,7 +169,22 @@
                     <li><a href="#contact" class="cta-button">Free Quote</a></li>
                 </ul>
             </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
+        
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact" class="cta-button" style="display: inline-block; text-align: center; margin-top: 10px;">Free Quote</a></li>
+            </ul>
+        </nav>
     </header>
 
     <section class="hero" id="home">
@@ -90,17 +206,17 @@
             </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <i class="fas fa-home" style="font-size: 3rem; color: #2e86c1; margin-bottom: 20px;"></i>
+                    <i class="fas fa-home"></i>
                     <h3>Residential Cleaning</h3>
                     <p>Complete home cleaning services for your living spaces.</p>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-building" style="font-size: 3rem; color: #2e86c1; margin-bottom: 20px;"></i>
+                    <i class="fas fa-building"></i>
                     <h3>Commercial Cleaning</h3>
                     <p>Office and business cleaning solutions.</p>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-spray-can" style="font-size: 3rem; color: #2e86c1; margin-bottom: 20px;"></i>
+                    <i class="fas fa-spray-can"></i>
                     <h3>Pressure Washing</h3>
                     <p>High pressure cleaning for outdoor areas.</p>
                 </div>
@@ -114,14 +230,16 @@
                 <h2>Contact Us</h2>
                 <p>Get your free quote today!</p>
             </div>
-            <div style="text-align: center; max-width: 600px; margin: 0 auto;">
-                <div style="margin-bottom: 30px;">
+            <div class="contact-info">
+                <div class="contact-details">
                     <h3><i class="fas fa-phone"></i> 0451 989 385</h3>
                     <h3><i class="fas fa-envelope"></i> contact@novaclean.com.au</h3>
                     <p><i class="fas fa-clock"></i> Available 24/7 - Monday to Sunday</p>
                 </div>
-                <a href="tel:0451989385" class="btn-primary" style="display: inline-block; margin: 10px;">Call Now</a>
-                <a href="mailto:contact@novaclean.com.au" class="btn-secondary" style="display: inline-block; margin: 10px;">Email Us</a>
+                <div class="contact-buttons">
+                    <a href="tel:0451989385" class="btn-primary" style="margin: 5px;">Call Now</a>
+                    <a href="mailto:contact@novaclean.com.au" class="btn-secondary" style="margin: 5px;">Email Us</a>
+                </div>
             </div>
         </div>
     </section>
@@ -145,6 +263,28 @@
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileNav = document.querySelector('.mobile-nav');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.header-container') && !e.target.closest('.mobile-nav')) {
+                mobileNav.classList.remove('active');
+            }
         });
     </script>
 </body>
