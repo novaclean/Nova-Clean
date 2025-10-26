@@ -642,11 +642,19 @@
                     <a class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
 
-                <!-- Building Cleaning -->
-                <div class="service-card" onclick="openService('building-cleaning')">
-                    <i class="fas fa-city"></i>
-                    <h3>Building Cleaning</h3>
-                    <p>Complete building exterior cleaning and maintenance.</p>
+                <!-- Gutter Cleaning -->
+                <div class="service-card" onclick="openService('gutter-cleaning')">
+                    <i class="fas fa-tint"></i>
+                    <h3>Gutter Cleaning</h3>
+                    <p>Complete gutter cleaning and drainage solutions.</p>
+                    <a class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Gardening Services -->
+                <div class="service-card" onclick="openService('gardening')">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Gardening Services</h3>
+                    <p>Professional gardening and lawn maintenance.</p>
                     <a class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
@@ -691,11 +699,8 @@
                         <option value="window-cleaning">Window Cleaning</option>
                         <option value="driveway">Driveway Cleaning</option>
                         <option value="solar-panel">Solar Panel Cleaning</option>
-                        <option value="building-cleaning">Building Cleaning</option>
-                        <option value="roof-cleaning">Roof Cleaning</option>
                         <option value="gutter-cleaning">Gutter Cleaning</option>
-                        <option value="deck-patio">Deck & Patio Cleaning</option>
-                        <option value="concrete-render">Concrete & Render Cleaning</option>
+                        <option value="gardening">Gardening Services</option>
                     </select>
                 </div>
                 
@@ -864,7 +869,190 @@
         </div>
     </div>
 
-    <!-- Add similar modals for other services... -->
+    <div id="window-cleaning-modal" class="service-modal">
+        <div class="service-modal-content">
+            <button class="close-modal" onclick="closeService('window-cleaning')">&times;</button>
+            <h2>Window Cleaning</h2>
+            <p>Professional window cleaning for crystal clear, streak-free views.</p>
+            
+            <div class="service-detail-grid">
+                <div class="service-info">
+                    <h3><i class="fas fa-check-circle"></i> Services Include:</h3>
+                    <ul>
+                        <li>Interior window cleaning</li>
+                        <li>Exterior window washing</li>
+                        <li>Window frame cleaning</li>
+                        <li>Screen cleaning</li>
+                        <li>Streak-free finish</li>
+                        <li>Eco-friendly solutions</li>
+                    </ul>
+                    
+                    <div class="testimonial-card">
+                        <p>"Our windows haven't been this clean since they were installed! NovaClean did an amazing job."</p>
+                        <div class="testimonial-author">- Lisa R., Mosman</div>
+                    </div>
+                </div>
+                <div class="service-images">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Window Cleaning">
+                    <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Clean Windows">
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn-primary" onclick="closeService('window-cleaning'); openQuoteModal();">
+                    <i class="fas fa-comment-dollar"></i> GET FREE WINDOW CLEANING QUOTE
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="driveway-modal" class="service-modal">
+        <div class="service-modal-content">
+            <button class="close-modal" onclick="closeService('driveway')">&times;</button>
+            <h2>Driveway Cleaning</h2>
+            <p>Professional driveway cleaning to restore your pavement's original beauty.</p>
+            
+            <div class="service-detail-grid">
+                <div class="service-info">
+                    <h3><i class="fas fa-check-circle"></i> Services Include:</h3>
+                    <ul>
+                        <li>High-pressure water cleaning</li>
+                        <li>Oil and stain removal</li>
+                        <li>Moss and algae treatment</li>
+                        <li>Surface restoration</li>
+                        <li>Eco-friendly cleaning solutions</li>
+                        <li>Sealing and protection (optional)</li>
+                    </ul>
+                    
+                    <div class="testimonial-card">
+                        <p>"NovaClean transformed our dirty driveway! It looks brand new again. Highly recommended!"</p>
+                        <div class="testimonial-author">- Sarah M., Castle Hill</div>
+                    </div>
+                </div>
+                <div class="service-images">
+                    <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Driveway Cleaning">
+                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Pressure Washing">
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn-primary" onclick="closeService('driveway'); openQuoteModal();">
+                    <i class="fas fa-comment-dollar"></i> GET FREE DRIVEWAY QUOTE
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="solar-panel-modal" class="service-modal">
+        <div class="service-modal-content">
+            <button class="close-modal" onclick="closeService('solar-panel')">&times;</button>
+            <h2>Solar Panel Cleaning</h2>
+            <p>Professional solar panel cleaning to maximize energy efficiency and panel lifespan.</p>
+            
+            <div class="service-detail-grid">
+                <div class="service-info">
+                    <h3><i class="fas fa-check-circle"></i> Services Include:</h3>
+                    <ul>
+                        <li>Gentle panel cleaning</li>
+                        <li>Dust and debris removal</li>
+                        <li>Bird dropping removal</li>
+                        <li>Eco-friendly cleaning solutions</li>
+                        <li>Safety-first approach</li>
+                        <li>Efficiency inspection</li>
+                    </ul>
+                    
+                    <div class="testimonial-card">
+                        <p>"After NovaClean cleaned our solar panels, our energy production increased by 15%! Amazing service."</p>
+                        <div class="testimonial-author">- Tom B., Northern Beaches</div>
+                    </div>
+                </div>
+                <div class="service-images">
+                    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Solar Panel Cleaning">
+                    <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Clean Solar Panels">
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn-primary" onclick="closeService('solar-panel'); openQuoteModal();">
+                    <i class="fas fa-comment-dollar"></i> GET FREE SOLAR PANEL QUOTE
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="gutter-cleaning-modal" class="service-modal">
+        <div class="service-modal-content">
+            <button class="close-modal" onclick="closeService('gutter-cleaning')">&times;</button>
+            <h2>Gutter Cleaning</h2>
+            <p>Complete gutter cleaning and maintenance to protect your home from water damage.</p>
+            
+            <div class="service-detail-grid">
+                <div class="service-info">
+                    <h3><i class="fas fa-check-circle"></i> Services Include:</h3>
+                    <ul>
+                        <li>Complete gutter clearing</li>
+                        <li>Downpipe cleaning</li>
+                        <li>Debris removal</li>
+                        <li>Gutter inspection</li>
+                        <li>Minor repairs assessment</li>
+                        <li>Prevention advice</li>
+                    </ul>
+                    
+                    <div class="testimonial-card">
+                        <p>"Our gutters were completely blocked. NovaClean did a fantastic job and now our drainage works perfectly!"</p>
+                        <div class="testimonial-author">- Robert K., Eastern Suburbs</div>
+                    </div>
+                </div>
+                <div class="service-images">
+                    <img src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Gutter Cleaning">
+                    <img src="https://images.unsplash.com/photo-1584116831289-7bf007aab6b9?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Clean Gutters">
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn-primary" onclick="closeService('gutter-cleaning'); openQuoteModal();">
+                    <i class="fas fa-comment-dollar"></i> GET FREE GUTTER CLEANING QUOTE
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="gardening-modal" class="service-modal">
+        <div class="service-modal-content">
+            <button class="close-modal" onclick="closeService('gardening')">&times;</button>
+            <h2>Gardening Services</h2>
+            <p>Professional gardening and lawn maintenance to keep your outdoor spaces beautiful.</p>
+            
+            <div class="service-detail-grid">
+                <div class="service-info">
+                    <h3><i class="fas fa-check-circle"></i> Services Include:</h3>
+                    <ul>
+                        <li>Lawn mowing and edging</li>
+                        <li>Hedge trimming</li>
+                        <li>Weed control</li>
+                        <li>Garden bed maintenance</li>
+                        <li>Planting and pruning</li>
+                        <li>Fertilizing and soil care</li>
+                    </ul>
+                    
+                    <div class="testimonial-card">
+                        <p>"NovaClean's gardening team transformed our backyard! It's now our favorite place to relax."</p>
+                        <div class="testimonial-author">- Maria S., Inner West</div>
+                    </div>
+                </div>
+                <div class="service-images">
+                    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Gardening Services">
+                    <img src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Lawn Maintenance">
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn-primary" onclick="closeService('gardening'); openQuoteModal();">
+                    <i class="fas fa-comment-dollar"></i> GET FREE GARDENING QUOTE
+                </button>
+            </div>
+        </div>
+    </div>
 
     <section id="contact" style="background: #f8f9fa;">
         <div class="container">
