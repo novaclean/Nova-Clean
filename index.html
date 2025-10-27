@@ -14,17 +14,31 @@
         header { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
         .header-container { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
         .logo { display: flex; align-items: center; }
+        .logo-icon {
+            position: relative;
+            color: var(--secondary);
+            font-size: 2rem;
+            margin-right: 10px;
+        }
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 8px;
+            height: 8px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 50%;
+            animation: shine 2s infinite;
+        }
+        @keyframes shine {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
         .logo-text { 
             font-size: 1.8rem; 
             color: var(--primary); 
-            margin-left: 10px; 
             font-weight: bold;
-            position: relative;
-        }
-        .logo-star {
-            color: var(--accent);
-            font-size: 0.8em;
-            margin-left: 2px;
         }
         
         /* Desktop Navigation */
@@ -505,8 +519,10 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                <i class="fas fa-tint" style="color: var(--secondary); font-size: 2rem;"></i>
-                <div class="logo-text">NovaClean<span class="logo-star">★</span></div>
+                <div class="logo-icon">
+                    <i class="fas fa-tint"></i>
+                </div>
+                <div class="logo-text">NovaClean</div>
             </div>
             
             <!-- Desktop Navigation -->
@@ -857,4 +873,318 @@
                     </div>
                 </div>
                 <div class="service-images">
-                    <img src="https://images.uns
+                    <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Pressure Washing">
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn-primary" onclick="closeService('pressure-washing'); openQuoteModal();">
+                    <i class="fas fa-comment-dollar"></i> GET FREE PRESSURE WASHING QUOTE
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="window-cleaning-modal" class="service-modal">
+        <div class="service-modal-content">
+            <button class="close-modal" onclick="closeService('window-cleaning')">&times;</button>
+            <h2>Window Cleaning</h2>
+            <p>Professional window cleaning for crystal clear, streak-free views.</p>
+            
+            <div class="service-detail-grid">
+                <div class="service-info">
+                    <h3><i class="fas fa-check-circle"></i> Services Include:</h3>
+                    <ul>
+                        <li>Interior window cleaning</li>
+                        <li>Exterior window washing</li>
+                        <li>Window frame cleaning</li>
+                        <li>Screen cleaning</li>
+                        <li>Streak-free finish</li>
+                        <li>Eco-friendly solutions</li>
+                    </ul>
+                    
+                    <div class="testimonial-card">
+                        <p>"Our windows haven't been this clean since they were installed! NovaClean did an amazing job."</p>
+                        <div class="testimonial-author">- Lisa R., Mosman</div>
+                    </div>
+                </div>
+                <div class="service-images">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Window Cleaning">
+                    <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Clean Windows">
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn-primary" onclick="closeService('window-cleaning'); openQuoteModal();">
+                    <i class="fas fa-comment-dollar"></i> GET FREE WINDOW CLEANING QUOTE
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="driveway-modal" class="service-modal">
+        <div class="service-modal-content">
+            <button class="close-modal" onclick="closeService('driveway')">&times;</button>
+            <h2>Driveway Cleaning</h2>
+            <p>Professional driveway cleaning to restore your pavement's original beauty.</p>
+            
+            <div class="service-detail-grid">
+                <div class="service-info">
+                    <h3><i class="fas fa-check-circle"></i> Services Include:</h3>
+                    <ul>
+                        <li>High-pressure water cleaning</li>
+                        <li>Oil and stain removal</li>
+                        <li>Moss and algae treatment</li>
+                        <li>Surface restoration</li>
+                        <li>Eco-friendly cleaning solutions</li>
+                        <li>Sealing and protection (optional)</li>
+                    </ul>
+                    
+                    <div class="testimonial-card">
+                        <p>"NovaClean transformed our dirty driveway! It looks brand new again. Highly recommended!"</p>
+                        <div class="testimonial-author">- Sarah M., Castle Hill</div>
+                    </div>
+                </div>
+                <div class="service-images">
+                    <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Driveway Cleaning">
+                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Pressure Washing">
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn-primary" onclick="closeService('driveway'); openQuoteModal();">
+                    <i class="fas fa-comment-dollar"></i> GET FREE DRIVEWAY QUOTE
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="solar-panel-modal" class="service-modal">
+        <div class="service-modal-content">
+            <button class="close-modal" onclick="closeService('solar-panel')">&times;</button>
+            <h2>Solar Panel Cleaning</h2>
+            <p>Professional solar panel cleaning to maximize energy efficiency and panel lifespan.</p>
+            
+            <div class="service-detail-grid">
+                <div class="service-info">
+                    <h3><i class="fas fa-check-circle"></i> Services Include:</h3>
+                    <ul>
+                        <li>Gentle panel cleaning</li>
+                        <li>Dust and debris removal</li>
+                        <li>Bird dropping removal</li>
+                        <li>Eco-friendly cleaning solutions</li>
+                        <li>Safety-first approach</li>
+                        <li>Efficiency inspection</li>
+                    </ul>
+                    
+                    <div class="testimonial-card">
+                        <p>"After NovaClean cleaned our solar panels, our energy production increased by 15%! Amazing service."</p>
+                        <div class="testimonial-author">- Tom B., Northern Beaches</div>
+                    </div>
+                </div>
+                <div class="service-images">
+                    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Solar Panel Cleaning">
+                    <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Clean Solar Panels">
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn-primary" onclick="closeService('solar-panel'); openQuoteModal();">
+                    <i class="fas fa-comment-dollar"></i> GET FREE SOLAR PANEL QUOTE
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="gutter-cleaning-modal" class="service-modal">
+        <div class="service-modal-content">
+            <button class="close-modal" onclick="closeService('gutter-cleaning')">&times;</button>
+            <h2>Gutter Cleaning</h2>
+            <p>Complete gutter cleaning and maintenance to protect your home from water damage.</p>
+            
+            <div class="service-detail-grid">
+                <div class="service-info">
+                    <h3><i class="fas fa-check-circle"></i> Services Include:</h3>
+                    <ul>
+                        <li>Complete gutter clearing</li>
+                        <li>Downpipe cleaning</li>
+                        <li>Debris removal</li>
+                        <li>Gutter inspection</li>
+                        <li>Minor repairs assessment</li>
+                        <li>Prevention advice</li>
+                    </ul>
+                    
+                    <div class="testimonial-card">
+                        <p>"Our gutters were completely blocked. NovaClean did a fantastic job and now our drainage works perfectly!"</p>
+                        <div class="testimonial-author">- Robert K., Eastern Suburbs</div>
+                    </div>
+                </div>
+                <div class="service-images">
+                    <img src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Gutter Cleaning">
+                    <img src="https://images.unsplash.com/photo-1584116831289-7bf007aab6b9?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Clean Gutters">
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn-primary" onclick="closeService('gutter-cleaning'); openQuoteModal();">
+                    <i class="fas fa-comment-dollar"></i> GET FREE GUTTER CLEANING QUOTE
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="gardening-modal" class="service-modal">
+        <div class="service-modal-content">
+            <button class="close-modal" onclick="closeService('gardening')">&times;</button>
+            <h2>Gardening Services</h2>
+            <p>Professional gardening and lawn maintenance to keep your outdoor spaces beautiful.</p>
+            
+            <div class="service-detail-grid">
+                <div class="service-info">
+                    <h3><i class="fas fa-check-circle"></i> Services Include:</h3>
+                    <ul>
+                        <li>Lawn mowing and edging</li>
+                        <li>Hedge trimming</li>
+                        <li>Weed control</li>
+                        <li>Garden bed maintenance</li>
+                        <li>Planting and pruning</li>
+                        <li>Fertilizing and soil care</li>
+                    </ul>
+                    
+                    <div class="testimonial-card">
+                        <p>"NovaClean's gardening team transformed our backyard! It's now our favorite place to relax."</p>
+                        <div class="testimonial-author">- Maria S., Inner West</div>
+                    </div>
+                </div>
+                <div class="service-images">
+                    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Gardening Services">
+                    <img src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Lawn Maintenance">
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn-primary" onclick="closeService('gardening'); openQuoteModal();">
+                    <i class="fas fa-comment-dollar"></i> GET FREE GARDENING QUOTE
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <section id="contact" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get Your Free Quote Today!</h2>
+                <p>Contact us for a free, no-obligation quote on any of our services. We respond within 30 minutes.</p>
+            </div>
+            <div class="contact-info">
+                <div class="contact-details">
+                    <h3><i class="fas fa-phone"></i> 0451 989 385</h3>
+                    <h3><i class="fas fa-envelope"></i> contact@novaclean.au</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Serving All Sydney Suburbs</p>
+                    <p><i class="fas fa-clock"></i> Available 24/7 - Monday to Sunday</p>
+                </div>
+                <div class="contact-buttons">
+                    <button class="btn-primary" onclick="openQuoteModal()" style="margin: 10px;">
+                        <i class="fas fa-comment-dollar"></i> GET FREE QUOTE
+                    </button>
+                    <a href="tel:0451989385" class="btn-secondary" style="margin: 10px;">
+                        <i class="fas fa-phone"></i> CALL NOW: 0451 989 385
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h3>NovaClean</h3>
+            <p>Professional 24/7 cleaning services for Sydney</p>
+            <p><i class="fas fa-phone"></i> 0451 989 385 | <i class="fas fa-envelope"></i> contact@novaclean.au</p>
+            <p><i class="fas fa-map-marker-alt"></i> Sydney Wide Service | <i class="fas fa-shield-alt"></i> Fully Insured | <i class="fas fa-leaf"></i> Eco-Friendly Products</p>
+            <p>&copy; 2023 NovaClean Australia. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll para links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileNav = document.querySelector('.mobile-nav');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+        });
+
+        // Quote Modal Functions
+        function openQuoteModal() {
+            document.getElementById('quote-modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeQuoteModal() {
+            document.getElementById('quote-modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Service Modal Functions - CORRIGIDO
+        function openService(service) {
+            const modal = document.getElementById(service + '-modal');
+            if (modal) {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeService(service) {
+            const modal = document.getElementById(service + '-modal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Close modals when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target.classList.contains('quote-modal')) {
+                closeQuoteModal();
+            }
+            if (e.target.classList.contains('service-modal')) {
+                e.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.header-container') && !e.target.closest('.mobile-nav')) {
+                mobileNav.classList.remove('active');
+            }
+        });
+
+        // Form submission
+        document.getElementById('quote-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your quote request! We will contact you within 30 minutes.');
+            closeQuoteModal();
+            this.reset();
+        });
+
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('.mobile-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
