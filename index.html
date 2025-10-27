@@ -14,34 +14,18 @@
         header { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
         .header-container { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
         .logo { display: flex; align-items: center; }
-        .logo-icon {
-            position: relative;
-            color: var(--secondary);
-            font-size: 2rem;
-            margin-right: 10px;
-        }
-        .logo-icon::after {
-            content: '';
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            width: 8px;
-            height: 8px;
-            background: rgba(255,255,255,0.8);
-            border-radius: 50%;
-            animation: shine 2s infinite;
-        }
-        @keyframes shine {
-            0%, 100% { opacity: 0.6; }
-            50% { opacity: 1; }
-        }
         .logo-text { 
             font-size: 1.8rem; 
             color: var(--primary); 
+            margin-left: 10px; 
             font-weight: bold;
+            position: relative;
         }
-        
-        /* Resto do CSS permanece igual... */
+        .logo-star {
+            color: var(--accent);
+            font-size: 0.8em;
+            margin-left: 2px;
+        }
         
         /* Desktop Navigation */
         .desktop-nav { display: flex; }
@@ -521,10 +505,8 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-tint"></i>
-                </div>
-                <div class="logo-text">NovaClean</div>
+                <i class="fas fa-tint" style="color: var(--secondary); font-size: 2rem;"></i>
+                <div class="logo-text">NovaClean<span class="logo-star">★</span></div>
             </div>
             
             <!-- Desktop Navigation -->
@@ -840,4 +822,39 @@
                     </div>
                 </div>
                 <div class="service-images">
-                    <img src="https://images.unsplash.com/photo-1621905251189-08d
+                    <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="House Washing">
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn-primary" onclick="closeService('house-washing'); openQuoteModal();">
+                    <i class="fas fa-comment-dollar"></i> GET FREE HOUSE WASHING QUOTE
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="pressure-washing-modal" class="service-modal">
+        <div class="service-modal-content">
+            <button class="close-modal" onclick="closeService('pressure-washing')">&times;</button>
+            <h2>Pressure Washing</h2>
+            <p>High-pressure cleaning services for various outdoor surfaces.</p>
+            
+            <div class="service-detail-grid">
+                <div class="service-info">
+                    <h3><i class="fas fa-check-circle"></i> Services Include:</h3>
+                    <ul>
+                        <li>Patio and deck cleaning</li>
+                        <li>Fence washing</li>
+                        <li>Outdoor furniture cleaning</li>
+                        <li>Concrete surface cleaning</li>
+                        <li>Brick and stone cleaning</li>
+                    </ul>
+                    
+                    <div class="testimonial-card">
+                        <p>"Our patio looks brand new after NovaClean's pressure washing service!"</p>
+                        <div class="testimonial-author">- Sarah J., Bondi</div>
+                    </div>
+                </div>
+                <div class="service-images">
+                    <img src="https://images.uns
