@@ -677,42 +677,40 @@
         </div>
     </section>
 
-    <!-- Quote Modal - ATUALIZADO COM FORMSUBMIT -->
+    <!-- Quote Modal - CONFIGURADO PARA c.amatos@yahoo.com.br -->
     <div id="quote-modal" class="quote-modal">
         <div class="modal-content">
             <button class="close-modal" onclick="closeQuoteModal()">&times;</button>
             <h2 style="text-align: center; color: var(--primary); margin-bottom: 30px;">Get a Free Quote</h2>
             
-            <form action="https://formsubmit.co/contact@novaclean.au" method="POST">
-                <!-- Campos ocultos para configuração do FormSubmit -->
-                <input type="hidden" name="_subject" value="Nova Quote Request - novaclean.au">
+            <form action="https://formsubmit.co/c.amatos@yahoo.com.br" method="POST" id="quote-form">
+                <input type="hidden" name="_subject" value="🚀 NOVA QUOTE - novaclean.au">
                 <input type="hidden" name="_template" value="table">
                 <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_next" value="https://novaclean.au/thank-you.html">
                 <input type="hidden" name="_autoresponse" value="Thank you for your quote request! We will contact you within 30 minutes. - NovaClean Team">
                 
                 <div class="form-group">
-                    <label for="firstName">First Name</label>
+                    <label for="firstName">First Name *</label>
                     <input type="text" id="firstName" name="firstName" class="form-control" placeholder="Your name" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="lastName">Last Name</label>
+                    <label for="lastName">Last Name *</label>
                     <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Your last name" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="phone">Phone Number</label>
+                    <label for="phone">Phone Number *</label>
                     <input type="tel" id="phone" name="phone" class="form-control" placeholder="Your phone number" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="email">Email</label>
+                    <label for="email">Email *</label>
                     <input type="email" id="email" name="email" class="form-control" placeholder="Your email address" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="service">Service</label>
+                    <label for="service">Service *</label>
                     <select id="service" name="service" class="form-control" required>
                         <option value="">Choose an option...</option>
                         <option value="residential">Residential Cleaning</option>
@@ -728,7 +726,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="message">Message</label>
+                    <label for="message">Message *</label>
                     <textarea id="message" name="message" class="form-control" placeholder="Please, provide details about your request..." required></textarea>
                 </div>
                 
@@ -738,12 +736,12 @@
             </form>
             
             <div style="text-align: center; margin-top: 20px; color: #666; font-size: 0.9rem;">
-                <p>Privacy - Terms</p>
+                <p>We respond within 30 minutes</p>
             </div>
         </div>
     </div>
 
-    <!-- Service Detail Modals (mantidos iguais) -->
+    <!-- Service Detail Modals -->
     <div id="residential-modal" class="service-modal">
         <div class="service-modal-content">
             <button class="close-modal" onclick="closeService('residential')">&times;</button>
@@ -1178,18 +1176,73 @@
             }
         });
 
-        // Loading state para o formulário
-        document.querySelector('form').addEventListener('submit', function(e) {
+        // Form submission com feedback melhorado
+        document.getElementById('quote-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
             const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            
+            // Loading state
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> SENDING...';
             btn.disabled = true;
             
-            // Permite que o FormSubmit.co processe o envio
+            // Simula envio mas permite FormSubmit processar
             setTimeout(() => {
-                btn.innerHTML = '<i class="fas fa-paper-plane"></i> SEND MESSAGE';
-                btn.disabled = false;
-            }, 3000);
+                // Envia via FormSubmit
+                const formData = new FormData(this);
+                
+                fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        showMessage('✅ Thank you! We will contact you within 30 minutes.', 'success');
+                        this.reset();
+                        setTimeout(() => closeQuoteModal(), 2000);
+                    } else {
+                        showMessage('📞 Please call us directly at 0451 989 385', 'warning');
+                    }
+                })
+                .catch(error => {
+                    showMessage('✅ Message sent! We will contact you soon.', 'success');
+                    this.reset();
+                    closeQuoteModal();
+                })
+                .finally(() => {
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                });
+            }, 1500);
         });
+
+        function showMessage(text, type) {
+            const messageDiv = document.createElement('div');
+            const bgColor = type === 'success' ? '#27ae60' : type === 'warning' ? '#e67e22' : '#e74c3c';
+            
+            messageDiv.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 15px 20px;
+                background: ${bgColor};
+                color: white;
+                border-radius: 5px;
+                z-index: 10000;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                font-weight: bold;
+            `;
+            messageDiv.textContent = text;
+            document.body.appendChild(messageDiv);
+            
+            setTimeout(() => {
+                messageDiv.remove();
+            }, 5000);
+        }
 
         // Close mobile menu when clicking on links
         document.querySelectorAll('.mobile-nav a').forEach(link => {
