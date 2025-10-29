@@ -677,36 +677,43 @@
         </div>
     </section>
 
-    <!-- Quote Modal -->
+    <!-- Quote Modal - ATUALIZADO COM FORMSUBMIT -->
     <div id="quote-modal" class="quote-modal">
         <div class="modal-content">
             <button class="close-modal" onclick="closeQuoteModal()">&times;</button>
             <h2 style="text-align: center; color: var(--primary); margin-bottom: 30px;">Get a Free Quote</h2>
             
-            <form id="quote-form">
+            <form action="https://formsubmit.co/contact@novaclean.au" method="POST">
+                <!-- Campos ocultos para configuração do FormSubmit -->
+                <input type="hidden" name="_subject" value="Nova Quote Request - novaclean.au">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://novaclean.au/thank-you.html">
+                <input type="hidden" name="_autoresponse" value="Thank you for your quote request! We will contact you within 30 minutes. - NovaClean Team">
+                
                 <div class="form-group">
                     <label for="firstName">First Name</label>
-                    <input type="text" id="firstName" class="form-control" placeholder="Your name" required>
+                    <input type="text" id="firstName" name="firstName" class="form-control" placeholder="Your name" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="lastName">Last Name</label>
-                    <input type="text" id="lastName" class="form-control" placeholder="Your last name" required>
+                    <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Your last name" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" class="form-control" placeholder="Your phone number" required>
+                    <input type="tel" id="phone" name="phone" class="form-control" placeholder="Your phone number" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" class="form-control" placeholder="Your email address" required>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Your email address" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="service">Service</label>
-                    <select id="service" class="form-control" required>
+                    <select id="service" name="service" class="form-control" required>
                         <option value="">Choose an option...</option>
                         <option value="residential">Residential Cleaning</option>
                         <option value="commercial">Commercial Cleaning</option>
@@ -722,7 +729,7 @@
                 
                 <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea id="message" class="form-control" placeholder="Please, provide details about your request..." required></textarea>
+                    <textarea id="message" name="message" class="form-control" placeholder="Please, provide details about your request..." required></textarea>
                 </div>
                 
                 <button type="submit" class="btn-primary" style="width: 100%; padding: 18px; font-size: 1.2rem;">
@@ -736,7 +743,7 @@
         </div>
     </div>
 
-    <!-- Service Detail Modals -->
+    <!-- Service Detail Modals (mantidos iguais) -->
     <div id="residential-modal" class="service-modal">
         <div class="service-modal-content">
             <button class="close-modal" onclick="closeService('residential')">&times;</button>
@@ -1136,7 +1143,7 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Service Modal Functions - CORRIGIDO
+        // Service Modal Functions
         function openService(service) {
             const modal = document.getElementById(service + '-modal');
             if (modal) {
@@ -1171,12 +1178,17 @@
             }
         });
 
-        // Form submission
-        document.getElementById('quote-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your quote request! We will contact you within 30 minutes.');
-            closeQuoteModal();
-            this.reset();
+        // Loading state para o formulário
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const btn = this.querySelector('button[type="submit"]');
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> SENDING...';
+            btn.disabled = true;
+            
+            // Permite que o FormSubmit.co processe o envio
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-paper-plane"></i> SEND MESSAGE';
+                btn.disabled = false;
+            }, 3000);
         });
 
         // Close mobile menu when clicking on links
