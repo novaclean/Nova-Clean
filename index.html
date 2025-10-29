@@ -677,17 +677,25 @@
         </div>
     </section>
 
-    <!-- Quote Modal - CONFIGURADO PARA c.amatos@yahoo.com.br -->
+    <!-- Quote Modal - OTIMIZADO CONTRA SPAM -->
     <div id="quote-modal" class="quote-modal">
         <div class="modal-content">
             <button class="close-modal" onclick="closeQuoteModal()">&times;</button>
             <h2 style="text-align: center; color: var(--primary); margin-bottom: 30px;">Get a Free Quote</h2>
             
             <form action="https://formsubmit.co/c.amatos@yahoo.com.br" method="POST" id="quote-form">
-                <input type="hidden" name="_subject" value="🚀 NOVA QUOTE - novaclean.au">
+                <!-- Configurações avançadas contra SPAM -->
+                <input type="hidden" name="_subject" value="NovaClean Quote Request - Important">
                 <input type="hidden" name="_template" value="table">
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_autoresponse" value="Thank you for your quote request! We will contact you within 30 minutes. - NovaClean Team">
+                <input type="hidden" name="_blacklist" value="no-reply@gmail.com, spam@">
+                <input type="hidden" name="_format" value="plain">
+                <input type="text" name="_honey" style="display:none">
+                <input type="hidden" name="_replyto" value="auto">
+                
+                <!-- Campo honeypot para bots -->
+                <input type="text" name="_gotcha" style="display: none;">
                 
                 <div class="form-group">
                     <label for="firstName">First Name *</label>
