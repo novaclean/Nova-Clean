@@ -66,3 +66,18 @@ footer p{margin:6px 0;opacity:.92}
 @media(max-width:768px){html{font-size:15px}.topbar{font-size:.8rem;padding:6px 0}.logo{font-size:1.3rem}.bar{padding:9px 0}.hero{padding:36px 0}.hero h1{font-size:1.55rem;margin-bottom:10px}.hero p{font-size:1rem;margin-bottom:18px}h1{font-size:1.6rem!important}h2{font-size:1.4rem}.lead{margin-bottom:20px;font-size:.95rem}section{padding:30px 0}.btn{padding:11px 18px;font-size:.95rem}.card{padding:16px}.card .ic{font-size:1.6rem}.card h3{font-size:1.05rem}.grid{gap:12px}.trust{padding:16px 0}.trust ul{font-size:.85rem;gap:10px}.shot span{font-size:3rem}input,select,textarea{padding:10px}.f{margin-bottom:12px}.sticky a{padding:10px;font-size:.92rem}body{padding-bottom:60px}.ticks li{padding:8px 0}}
 img{max-width:100%}.split>*{min-width:0}.shot{width:100%;max-height:480px}.shot img{display:block}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.hero.photo{background:linear-gradient(rgba(20,66,94,.84),rgba(20,66,94,.78)),url(pressure-washing.jpg) center/cover}
+.card img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:8px;margin-bottom:12px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;list-style:none;counter-reset:s}
+.steps li{background:#fff;border:1px solid #e3e8ee;border-radius:10px;padding:22px;counter-increment:s}
+.steps li:before{content:counter(s);display:inline-flex;width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-bottom:10px}
+.steps b{display:block;color:var(--navy);margin-bottom:4px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none}
+.chips li{background:#fff;border:1px solid #cdd5dd;border-radius:999px;padding:8px 16px;font-weight:600;color:var(--navy)}
+details{background:#fff;border:1px solid #e3e8ee;border-radius:10px;padding:14px 18px;margin-bottom:10px;max-width:760px}
+summary{cursor:pointer;font-weight:700;color:var(--navy)}
+details p{margin-top:10px;color:#51606a}
+.alt{background:#fff}
+.prose{max-width:760px}.prose h2{font-size:1.25rem;margin:22px 0 6px}.prose p,.prose li{color:#3d4a53;margin-bottom:8px}.prose ul{padding-left:20px}
+@media(max-width:768px){.steps{grid-template-columns:1fr}}
