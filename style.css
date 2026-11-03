@@ -39,6 +39,7 @@ h2{font-size:2rem;color:var(--navy);margin-bottom:12px}
 .ticks{list-style:none}
 .ticks li{padding:10px 0;border-bottom:1px solid #e3e8ee}
 .ticks li:before{content:"✓ ";color:#1e8449;font-weight:700}
+.shot{position:relative;aspect-ratio:4/3;border-radius:10px;overflow:hidden;background:linear-gradient(135deg,var(--navy),var(--blue));display:flex;align-items:center;justify-content:center}.shot span{font-size:4.5rem}.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 img.photo{width:100%;height:auto;border-radius:10px;aspect-ratio:4/3;object-fit:cover;background:#dfe6ec}
 blockquote{background:#fff;border-left:4px solid var(--orange);padding:18px 22px;border-radius:8px;margin-top:24px}
 blockquote cite{display:block;margin-top:8px;font-weight:700;color:var(--navy);font-style:normal}
