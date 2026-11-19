@@ -26,7 +26,33 @@ O que mudou:
 
 ## 2. Google Business Profile (Google Maps), o mais urgente
 
-O que encontrei no perfil atual da NovaClean:
+### ✅ Feito por API em 19/11/2026 (perfil verificado "Nova Clean")
+- **Descrição nova:** foco em tatame e pisos, sem "End of Lease" e sem "Book online".
+- **Telefone:** +61 451 989 385
+- **Categoria principal:** *Janitorial service* (a categoria comercial do Google).
+- **Categorias extras:** House cleaning, Carpet cleaning, Window cleaning, Gutter cleaning, Pressure washing.
+- **11 serviços** cadastrados, com descrição.
+- **10 fotos reais**, incluindo a capa nova (o funcionário na academia).
+- **Primeiro post** publicado, com a foto do concreto e o botão "Call".
+- **Endereço e site:** o endereço já estava escondido (atende Sydney) e o site já estava correto.
+
+### ⚠️ Perfil duplicado
+Existe **outro perfil "NovaClean"** no Google Maps, **sem dono**:
+- categoria "Window cleaning service";
+- endereço "Sydney NSW 2000";
+- link: https://www.google.com/maps?cid=17117225259939676949
+
+Ele divide as buscas com o perfil verdadeiro. Para remover:
+1. Abra o link acima no Google Maps.
+2. Toque em **Suggest an edit → Close or remove → Duplicate of another place**.
+3. Escolha o perfil verdadeiro "Nova Clean".
+
+### Link para pedir avaliações
+https://search.google.com/local/writereview?placeid=ChIJe2NACCp7lqgRRlWLp4mws_M
+
+---
+
+Diagnóstico inicial (feito pela busca pública; corresponde ao perfil duplicado):
 
 | Item | Hoje | Deve ficar |
 |---|---|---|
