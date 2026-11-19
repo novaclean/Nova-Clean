@@ -7,7 +7,7 @@ Assim, quem vir o vídeo e procurar "NovaClean" no Google encontra um perfil com
 
 ---
 
-## 1. Site (feito, falta publicar)
+## 1. Site (feito e publicado em 19/11/2026)
 
 Tudo está no branch `claude/instalar-hyperframes-nxe7qp`. **O site no ar só muda quando esse branch for juntado ao `main`.** É só me pedir: "pode publicar o site".
 
@@ -125,7 +125,7 @@ Crie ou ligue uma **página do Facebook** ao Instagram (Meta Business Suite). As
 ---
 
 ## 4. Próximos passos que eu posso fazer
-- [ ] **Publicar o site** (juntar o branch ao `main`). Preciso do seu OK.
+- [x] **Publicar o site**: publicado em 19/11/2026.
 - [ ] Conectar o perfil do Google da NovaClean e o Instagram @novaclean.au ao Windsor.ai. Assim eu consigo ver métricas e preparar relatórios.
 - [ ] Montar os próximos Reels a partir dos vídeos que você mandar.
 - [ ] Criar os carrosséis antes/depois (imagens prontas para postar).
