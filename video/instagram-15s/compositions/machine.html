@@ -1,0 +1,32 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #0b2536; font-family: "Montserrat", sans-serif; }
+    .cam { position: absolute; inset: 0; }
+    .media { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; }
+    .shade { position: absolute; left: 0; top: 0; width: 1080px; height: 900px;
+      background: linear-gradient(180deg, rgba(8,28,42,.88) 0%, rgba(8,28,42,.6) 60%, rgba(8,28,42,0) 100%); }
+    .kicker { position: absolute; left: 124px; top: 320px; padding: 10px 26px; border-radius: 999px;
+      background: #c9560f; color: #fff; font-weight: 800; font-size: 40px; letter-spacing: .06em; }
+    .title { position: absolute; left: 120px; top: 420px; width: 840px; color: #fff; font-weight: 900;
+      font-size: 104px; line-height: 1; letter-spacing: -0.02em; }
+    .title .w { display: inline-block; }
+    .title .accent { color: #ff8a3d; }
+
+    #machine-cam { transform-origin: 50% 50%; }
+  </style>
+  <div id="root" data-composition-id="machine" data-width="1080" data-height="1920">
+    <div id="machine-cam" class="cam">
+      <video id="machine-vid" class="media clip" src="assets/mat-machine.mp4" data-start="0" data-duration="3" data-media-start="1.5" muted playsinline></video>
+    </div>
+    <div class="shade" id="machine-shade"></div>
+    
+    <h2 id="machine-title" class="title"><span class="w">Every</span> <span class="w">mat.</span> <span class="w accent">Every</span> <span class="w accent">corner.</span></h2>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#machine-cam", { scale: 1.0 }, { scale: 1.08, duration: 3.6, ease: "power2.out" }, 0);
+    
+    tl.fromTo("#machine-title .w", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.13, stagger: 0.09, ease: "power4.out" }, 0.35);
+    window.__timelines["machine"] = tl;
+  </script>
+</template>

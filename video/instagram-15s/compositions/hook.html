@@ -1,27 +1,22 @@
 <template>
   <style>
-    #root { position: absolute; inset: 0; overflow: hidden; background: #14425e; font-family: "Montserrat", sans-serif; }
-    #hook-ground { position: absolute; inset: 0; background: linear-gradient(180deg, #0b2536 0%, #14425e 55%, #1d6a96 100%); }
+    #root { position: absolute; inset: 0; overflow: hidden; background: #0b2536; font-family: "Montserrat", sans-serif; }
+    #hook-cam { position: absolute; inset: 0; transform-origin: 50% 55%; }
+    #hook-img { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; object-position: 50% 50%; }
+    #hook-shade { position: absolute; left: 0; top: 0; width: 1080px; height: 760px;
+      background: linear-gradient(180deg, rgba(8,28,42,.9) 0%, rgba(8,28,42,.6) 60%, rgba(8,28,42,0) 100%); }
     #hook-title { position: absolute; left: 120px; top: 300px; width: 840px; color: #fff;
       font-weight: 900; font-size: 140px; line-height: .95; letter-spacing: -0.03em; text-transform: uppercase; }
     #hook-title .accent { color: #ff8a3d; }
-    #hook-sub { position: absolute; left: 124px; top: 455px; width: 840px; color: #cfe6f5; font-weight: 700; font-size: 50px; }
-    #hook-card { position: absolute; left: 0; top: 620px; width: 1080px; height: 810px; overflow: hidden; }
-    #hook-cam { position: absolute; inset: 0; transform-origin: 62% 50%; }
-    #hook-img { position: absolute; left: 0; top: 0; width: 1080px; height: 810px; object-fit: cover; }
+    #hook-sub { position: absolute; left: 124px; top: 455px; width: 840px; color: #fff; font-weight: 700; font-size: 50px; }
     .tag { position: absolute; padding: 12px 28px; border-radius: 999px; font-weight: 800; font-size: 40px;
-      letter-spacing: .06em; color: #fff; }
-    #hook-before { left: 130px; top: 1160px; background: rgba(36,48,56,.88); }
-    #hook-after { left: 560px; top: 1160px; background: #c9560f; }
-    #hook-arrow { position: absolute; left: 666px; top: 700px; width: 6px; height: 440px; background: #ff8a3d;
-      border-radius: 3px; transform-origin: 50% 100%; }
+      letter-spacing: .06em; color: #fff; box-shadow: 0 6px 20px rgba(0,0,0,.35); }
+    #hook-before { left: 780px; top: 860px; background: rgba(36,48,56,.92); }
+    #hook-after { left: 410px; top: 1020px; background: #c9560f; }
   </style>
   <div id="root" data-composition-id="hook" data-width="1080" data-height="1920">
-    <div id="hook-ground"></div>
-    <div id="hook-card">
-      <div id="hook-cam"><img id="hook-img" src="assets/work-yellow-pass.jpg" alt="" /></div>
-    </div>
-    <div id="hook-arrow"></div>
+    <div id="hook-cam"><img id="hook-img" src="assets/concrete-stripe.jpg" alt="" /></div>
+    <div id="hook-shade"></div>
     <h1 id="hook-title">One <span class="accent">pass.</span></h1>
     <p id="hook-sub">See the difference?</p>
     <div id="hook-before" class="tag">BEFORE</div>
@@ -32,11 +27,11 @@
     // Frame 0 already shows the result and the line (thumbnail + hook).
     tl.fromTo("#hook-cam", { scale: 1.0 }, { scale: 1.1, duration: 2.75, ease: "power2.inOut" }, 0);
     tl.fromTo("#hook-sub", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 0.4);
-    tl.fromTo("#hook-arrow", { scaleY: 0 }, { scaleY: 1, duration: 0.5, ease: "expo.out" }, 0.8);
-    tl.fromTo("#hook-before", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.6)" }, 0.9);
-    tl.fromTo("#hook-after", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.6)" }, 1.15);
+    tl.fromTo("#hook-before", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.6)" }, 0.8);
+    tl.fromTo("#hook-after", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.6)" }, 1.1);
     // Whip out upward into the next scene
-    tl.to(["#hook-card","#hook-arrow","#hook-title","#hook-sub","#hook-before","#hook-after"], { y: -500, opacity: 0.4, filter: "blur(18px)", duration: 0.25, ease: "power3.in" }, 2.75);
+    tl.to(["#hook-cam", "#hook-shade", "#hook-title", "#hook-sub", "#hook-before", "#hook-after"],
+      { y: -500, opacity: 0.4, filter: "blur(18px)", duration: 0.25, ease: "power3.in" }, 2.75);
     window.__timelines["hook"] = tl;
   </script>
 </template>
