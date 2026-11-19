@@ -1,0 +1,37 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; font-family: "Montserrat", sans-serif; }
+    #cta-ground { position: absolute; inset: 0; background: linear-gradient(160deg, var(--navy, #14425e) 0%, #1d6a96 100%);
+      transform-origin: 50% 50%; }
+    #cta-logo { position: absolute; left: 0; top: 340px; width: 1080px; text-align: center; color: #fff;
+      font-weight: 900; font-size: 132px; letter-spacing: -0.03em; }
+    #cta-logo span { color: #8fd0ff; }
+    #cta-line { position: absolute; left: 0; top: 520px; width: 1080px; text-align: center; color: #fff;
+      font-weight: 700; font-size: 54px; padding: 0 170px; line-height: 1.25; }
+    #cta-btn { position: absolute; left: 180px; top: 760px; width: 720px; padding: 34px 0; text-align: center;
+      border-radius: 22px; background: var(--accent, #c9560f); color: #fff; font-weight: 900; font-size: 64px; }
+    #cta-phone { position: absolute; left: 0; top: 960px; width: 1080px; text-align: center; color: #fff;
+      font-weight: 900; font-size: 84px; letter-spacing: .01em; }
+    #cta-site { position: absolute; left: 0; top: 1110px; width: 1080px; text-align: center; color: #cfe6f5;
+      font-weight: 700; font-size: 48px; }
+  </style>
+  <div id="root" data-composition-id="cta" data-width="1080" data-height="1920">
+    <div id="cta-ground"></div>
+    <div id="cta-logo">Nova<span>Clean</span></div>
+    <div id="cta-line">Professional cleaning across Sydney</div>
+    <div id="cta-btn">Get a free quote</div>
+    <div id="cta-phone" data-var-text="phone">0451 989 385</div>
+    <div id="cta-site" data-var-text="site">novaclean.au</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    // Colour flood: brand ground opens from the centre
+    tl.fromTo("#cta-ground", { clipPath: "circle(0% at 50% 45%)" }, { clipPath: "circle(120% at 50% 45%)", duration: 0.45, ease: "power2.inOut" }, 0);
+    tl.fromTo("#cta-logo", { opacity: 0, scale: 0.85, filter: "blur(10px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 0.2);
+    tl.fromTo("#cta-line", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 0.4);
+    tl.fromTo("#cta-btn", { opacity: 0, y: 40, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 0.5);
+    tl.fromTo("#cta-phone", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 0.65);
+    tl.fromTo("#cta-site", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.72);
+    window.__timelines["cta"] = tl;
+  </script>
+</template>

@@ -1,0 +1,53 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #0b2536; font-family: "Montserrat", sans-serif; }
+    .m-shot { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; }
+    .m-cam { position: absolute; inset: 0; }
+    .m-cam img { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; }
+    .m-shade { position: absolute; left: 0; top: 860px; width: 1080px; height: 560px;
+      background: linear-gradient(180deg, rgba(8,28,42,0) 0%, rgba(8,28,42,.7) 45%, rgba(8,28,42,.7) 70%, rgba(8,28,42,0) 100%); }
+    .m-label { position: absolute; left: 120px; top: 1080px; width: 840px; color: #fff; font-weight: 900;
+      font-size: 96px; line-height: 1; letter-spacing: -0.02em; }
+    .m-label b { color: #ff8a3d; font-weight: 900; }
+    #m-header { position: absolute; left: 124px; top: 320px; padding: 10px 26px; border-radius: 999px;
+      background: #14425e; color: #fff; font-weight: 800; font-size: 40px; letter-spacing: .06em; z-index: 10; }
+  </style>
+  <div id="root" data-composition-id="montage" data-width="1080" data-height="1920">
+    <div id="m-s1" class="m-shot clip" data-start="0" data-duration="0.9" data-track-index="0" style="z-index:1">
+      <div id="m-c1" class="m-cam"><img src="assets/driveway-cleaning.jpg" alt="" style="object-position:55% 50%" /></div>
+      <div class="m-shade"></div>
+      <div id="m-l1" class="m-label">Driveways<b>.</b></div>
+    </div>
+    <div id="m-s2" class="m-shot clip" data-start="0.9" data-duration="0.9" data-track-index="0" style="z-index:2">
+      <div id="m-c2" class="m-cam"><img src="assets/tile-grout-cleaning.jpg" alt="" style="object-position:40% 50%" /></div>
+      <div class="m-shade"></div>
+      <div id="m-l2" class="m-label">Tile &amp; grout<b>.</b></div>
+    </div>
+    <div id="m-s3" class="m-shot clip" data-start="1.8" data-duration="0.9" data-track-index="0" style="z-index:3">
+      <div id="m-c3" class="m-cam"><img src="assets/house-washing.jpg" alt="" style="object-position:60% 50%" /></div>
+      <div class="m-shade"></div>
+      <div id="m-l3" class="m-label">House washing<b>.</b></div>
+    </div>
+    <div id="m-s4" class="m-shot clip" data-start="2.7" data-duration="0.9" data-track-index="0" style="z-index:4">
+      <div id="m-c4" class="m-cam"><img src="assets/window-cleaning.jpg" alt="" style="object-position:45% 50%" /></div>
+      <div class="m-shade"></div>
+      <div id="m-l4" class="m-label">Windows<b>.</b></div>
+    </div>
+    <div id="m-header">ACROSS SYDNEY</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const shots = [
+      ["#m-c1", "#m-l1", 0.0, { x: 0, scale: 1.18 }, { x: 0, scale: 1.05 }],
+      ["#m-c2", "#m-l2", 0.9, { x: 60, scale: 1.12 }, { x: -20, scale: 1.12 }],
+      ["#m-c3", "#m-l3", 1.8, { x: 0, scale: 1.05 }, { x: 0, scale: 1.16 }],
+      ["#m-c4", "#m-l4", 2.7, { x: -60, scale: 1.12 }, { x: 20, scale: 1.12 }],
+    ];
+    shots.forEach(([cam, label, t, from, to]) => {
+      tl.fromTo(cam, from, Object.assign({}, to, { duration: 0.9, ease: "none" }), t);
+      tl.fromTo(label, { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.15, ease: "power4.out" }, t + 0.08);
+    });
+    tl.fromTo("#m-header", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.35, ease: "expo.out" }, 0.05);
+    window.__timelines["montage"] = tl;
+  </script>
+</template>

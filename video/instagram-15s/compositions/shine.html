@@ -1,0 +1,30 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #0b2536; font-family: "Montserrat", sans-serif; }
+    #shine-cam { position: absolute; inset: 0; transform-origin: 50% 70%; }
+    #shine-img { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; object-position: 40% 50%; }
+    #shine-shade { position: absolute; left: 0; top: 0; width: 1080px; height: 1000px;
+      background: linear-gradient(180deg, rgba(8,28,42,.88) 0%, rgba(8,28,42,.75) 65%, rgba(8,28,42,0) 100%); }
+    #shine-lines { position: absolute; left: 120px; top: 320px; width: 840px; color: #fff; font-weight: 900;
+      font-size: 120px; line-height: 1.02; letter-spacing: -0.02em; }
+    #shine-lines .w { display: block; }
+    #shine-lines .accent { color: #ff8a3d; }
+  </style>
+  <div id="root" data-composition-id="shine" data-width="1080" data-height="1920">
+    <div id="shine-cam">
+      <img id="shine-img" src="assets/work-grey-1.jpg" alt="" />
+    </div>
+    <div id="shine-shade"></div>
+    <h2 id="shine-lines">
+      <span class="w">Clean.</span>
+      <span class="w">Hygienic.</span>
+      <span class="w accent">Like new.</span>
+    </h2>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#shine-cam", { scale: 1.2, opacity: 0.55 }, { scale: 1.04, opacity: 1, duration: 2.4, ease: "power2.out" }, 0);
+    tl.fromTo("#shine-lines .w", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.15, stagger: 0.3, ease: "power4.out" }, 0.2);
+    window.__timelines["shine"] = tl;
+  </script>
+</template>

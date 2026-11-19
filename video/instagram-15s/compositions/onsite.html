@@ -1,0 +1,34 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #0b2536; font-family: "Montserrat", sans-serif; }
+    #onsite-cam { position: absolute; inset: 0; transform-origin: 70% 40%; }
+    #onsite-img { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; object-position: 72% 50%; }
+    #onsite-shade { position: absolute; left: 0; top: 0; width: 1080px; height: 820px;
+      background: linear-gradient(180deg, rgba(8,28,42,.85) 0%, rgba(8,28,42,.5) 65%, rgba(8,28,42,0) 100%); }
+    #onsite-kicker { position: absolute; left: 124px; top: 320px; padding: 10px 26px; border-radius: 999px;
+      background: #c9560f; color: #fff; font-weight: 800; font-size: 40px; letter-spacing: .06em; }
+    #onsite-title { position: absolute; left: 120px; top: 420px; width: 840px; color: #fff; font-weight: 900;
+      font-size: 104px; line-height: 1; letter-spacing: -0.02em; }
+    #onsite-title .w { display: inline-block; }
+  </style>
+  <div id="root" data-composition-id="onsite" data-width="1080" data-height="1920">
+    <div id="onsite-cam">
+      <img id="onsite-img" src="assets/work-in-progress.jpg" alt="" />
+    </div>
+    <div id="onsite-shade"></div>
+    <div id="onsite-kicker">GYM &amp; DOJO MATS</div>
+    <h2 id="onsite-title"><span class="w">Deep-cleaned</span> <span class="w">on</span> <span class="w">site.</span></h2>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    // Whip in from below, matching the hook's upward exit
+    tl.fromTo("#onsite-cam", { y: 500, filter: "blur(18px)", scale: 1.15 }, { y: 0, filter: "blur(0px)", duration: 0.35, ease: "power3.out" }, 0);
+    tl.fromTo("#onsite-cam", { scale: 1.15 }, { scale: 1.0, duration: 2.6, ease: "power2.out", immediateRender: false }, 0.35);
+    tl.fromTo("#onsite-shade", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
+    tl.fromTo("#onsite-kicker", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.4, ease: "expo.out" }, 0.3);
+    tl.fromTo("#onsite-title .w", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.13, stagger: 0.09, ease: "power4.out" }, 0.5);
+    // Dip before the montage cut
+    tl.to("#onsite-cam", { opacity: 0.55, duration: 0.1, immediateRender: false }, 2.88);
+    window.__timelines["onsite"] = tl;
+  </script>
+</template>
