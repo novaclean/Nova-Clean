@@ -155,3 +155,29 @@ Crie ou ligue uma **página do Facebook** ao Instagram (Meta Business Suite). As
 - [ ] Conectar o perfil do Google da NovaClean e o Instagram @novaclean.au ao Windsor.ai. Assim eu consigo ver métricas e preparar relatórios.
 - [ ] Montar os próximos Reels a partir dos vídeos que você mandar.
 - [ ] Criar os carrosséis antes/depois (imagens prontas para postar).
+
+---
+
+## 5. Auditoria antes do Reels (19/11/2026)
+
+**Site: corrigido e publicado**
+- **Velocidade da home no celular:** passou de 76 para **94**. O conteúdo principal aparece em 3,1 s (antes, 7,6 s).
+  - O topo agora usa uma foto real e leve, que carrega primeiro.
+  - Os cartões de serviço e a galeria usam miniaturas.
+- **Acessibilidade:** **100**. O laranja e o azul ficaram um pouco mais escuros para atingir o contraste mínimo de leitura.
+- **Topo da home:** "Gym mat & commercial floor cleaning across Sydney".
+- **Descrições do Google:** encurtadas para não aparecerem cortadas.
+- **Botões nas páginas Privacy e Thank-you:** os links "Free quote" e "Contact" foram corrigidos.
+- **Rodapé:** link "★ Review us on Google" em todas as páginas.
+- **Logo quadrado:** `logo-novaclean.png`, também incluído nos dados que o Google lê.
+
+**Google: corrigido**
+- Logo como foto de perfil.
+- 16 fotos no total, com a capa nova.
+
+**Falta (só o dono pode fazer)**
+- **Avaliações:** hoje são **0**. Mande a mensagem abaixo para 5 a 10 clientes antes de postar o Reels:
+  > Hi! Thanks again for choosing NovaClean 🙏 If you were happy with the job, could you leave us a quick Google review? It takes 30 seconds and really helps our small local business: https://search.google.com/local/writereview?placeid=ChIJe2NACCp7lqgRRlWLp4mws_M
+- **Link da bio do Instagram:** use este, que identifica quem veio do Instagram nas estatísticas do site:
+  `https://novaclean.au/?utm_source=instagram&utm_medium=social&utm_campaign=bio#quote`
+- **Perfil duplicado no Google Maps:** confirmar a remoção em alguns dias.
