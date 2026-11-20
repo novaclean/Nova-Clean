@@ -25,18 +25,18 @@ What worked for the NovaClean Reel (`instagram-15s/`, 27 s, 1080×1920). Copy th
 6. **Render**: `hyperframes render -o out.mp4` (~2–3 min for 27 s; run in background).
 7. **Loudness for social**: `ffmpeg -i out.mp4 -c:v copy -af loudnorm=I=-14:TP=-1.5:LRA=11 -c:a aac -b:a 192k final.mp4`
 
-## Media library (Google Drive, via the Google_Drive connector)
-Same folders per company. Workflow: owner drops new media in **00 - INBOX** → use it → move used originals to FOTOS / VIDEOS → finished videos to CRIATIVOS. Only list INBOX (newest first) when starting a video; don't load whole folders.
+## Media library (Google Drive, via the Google_Drive connector, logged in as amazonberry.au)
+Each company keeps new media in **its own** Google account and shares the folder with amazonberry.au (editor), so files count on the company's storage, not Amazon Berry's.
 
-| Folder | Nova Clean | Espetus | Amazon Berry |
-|---|---|---|---|
-| 00 - INBOX | `121h1sjQELlXaGjPLo8rX6SwqbuQ1m2Gz` | `1cYNGS_H9UmyaQqaejfdQGNBGnpF0SSZ0` | `1DpPnCJCCL0fEpUlxdTemo6LlU5dxLYAT` |
-| FOTOS | `1n1eegxyrwbOcJTJgZPd5EdHF0XMYXzvK` | `1Xh6cgei6IW5mVYvebjXdVyH96dJjHd0W` | `10OCXub1BxAqNnRngIjq5AuBMytCyrF-F` |
-| VIDEOS | `1NIpcRq5Av0XbBWU6EAraO4ONHNCTZkc_` | `1Eb6cww7IcQ0WDFXtJ5_U7LRgF_LrUYai` | `1oOTAoaSMevRQE5NOiThnd_KNDMn9rvDA` |
-| CRIATIVOS (finished) | `1QF1otayLJE8Mw53gSz_vyMEZmGNZXntL` | `1lgqkMIW3ITGDPGI5ZpO2kkp5zW9Lf4Ro` | `13VDlKMlDDozOOCS_unJDNzLfJL9q5K0H` |
-| DNA DA MARCA | `17Wao947Mr7w31mttDW4NBp_0ucjJoYm5` | `1E4h3GHhrIp19ISGDd814YA9UfeEy3IrS` | `1skW8hFE1RqhmS9yQhxSDEdeWXMHfe6Je` |
+| Company | New media folder (owner) | ID |
+|---|---|---|
+| NovaClean | NovaClean Midia (novaclean.au@gmail.com) | `1sdObaeI8KxqxHCSbk8RjxY2KQI33X4I9` |
+| Espetus | Espetus Reels (espetus.au@gmail.com) | `1TGnn80rimePb2ILVG2sOSRBD_AUGma6i` |
+| Amazon Berry | Amazon Berry → 00 - INBOX (own Drive) | `1DpPnCJCCL0fEpUlxdTemo6LlU5dxLYAT` |
 
-Query: `parentId = '<INBOX id>' and (mimeType contains 'image/' or mimeType contains 'video/')`, `orderBy: modifiedTime desc`, `excludeContentSnippets: true`.
+- Only list the company's folder, newest first: `parentId = '<id>' and (mimeType contains 'image/' or mimeType contains 'video/')`, `orderBy: modifiedTime desc`, `excludeContentSnippets: true`. Download only what the video uses.
+- Finished videos: put them back in the same company folder in a `Prontos` subfolder (create once if missing). Files uploaded from here are owned by amazonberry.au (small MP4s, fine).
+- Zen Academy material (~1.1 GB, folders FOTOS ZEN / Zen Academy / VIDEOS ZEN) still sits on amazonberry.au storage: owner decides later where it goes.
 
 ## Publish
 - Host the MP4 at a public URL (for NovaClean: commit to `main` of the site repo → `https://novaclean.au/<file>.mp4`).
